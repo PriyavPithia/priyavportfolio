@@ -148,7 +148,7 @@ const [isOpen, setIsOpen] = useState(false);
                 href="#contact"
                 onClick={(e) => handleLinkClick(e, 'contact')}
               >
-                <span>let's talk</span>
+                <span>let&apos;s talk</span>
               </a>
               <a
                 className=" px-5 z-0 text-black text-2xl py-2"
@@ -230,7 +230,7 @@ const [isOpen, setIsOpen] = useState(false);
                   e.preventDefault();
                   document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
                 }}> 
-                let's talk</motion.button>
+                let&apos;s talk</motion.button>
             </div>
             
 
@@ -430,10 +430,7 @@ const [isOpen, setIsOpen] = useState(false);
       onMouseEnter={handleMouseEnter('medium')}
           onMouseLeave={handleMouseLeave}
       className="font-[gbold] primary  text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-[30px] text-center lg:mb-[100px]">my projects</motion.h1>
-      // Inside the component
-
-
-// Render method
+      
 <motion.div
 initial={{ y: '10vh', opacity: 0}} 
 whileInView={{ y: 0, opacity:1}} 
@@ -672,11 +669,11 @@ transition={{ delay: 0.3, type: 'tween'}}
               I am a web developer with about half a decade of experience, 
               furnishing my skills and expertise in both programming and design. <br /><br />
 
-              Armed with a Bachelor's degree in Computer Science, 
+              Armed with a Bachelor&apos;s degree in Computer Science, 
               I have gone deep into the intricacies of creative web development, specializing in areas such as web development, ecommerce 
               and UI/UX design.  <br /><br />
               
-              Beyond the confines of academia, I've passionately pursued my interests in music, 
+              Beyond the confines of academia, I&apos;ve passionately pursued my interests in music, 
               kickboxing, and football, finding inspiration and balance outside the world of programming. <br /><br />
               With a firm commitment 
               to innovation and user-centric design, I approach every project with enthusiasm and dedication, striving to 
@@ -701,7 +698,7 @@ transition={{ delay: 0.3, type: 'tween'}}
           onMouseEnter={handleMouseEnter('medium')}
           onMouseLeave={handleMouseLeave}
           className="font-[gbold] primary  text-4xl md:text-5xl lg:text-6xl xl:text-7xl mt-[100px]  lg:mt-[180px] text-center lg:mb-[40px]">
-          lets' work together</motion.h1>
+          let&apos;s work together</motion.h1>
 
           <motion.h2 
           initial={{ y: '10vh', opacity: 0}} 
