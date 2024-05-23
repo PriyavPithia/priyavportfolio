@@ -139,7 +139,7 @@ export default function HomePage() {
                   className="px-5 z-0 text-white justify-center flex m-auto rounded-full w-[150px] bg-black text-2xl py-2"
                   href="#contact"
                   onClick={(e) => handleLinkClick(e, 'contact')}>
-                  <span>let's talk</span>
+                  <span>let&apos;s talk</span>
                 </a>
                 <a
                   className="px-5 z-0 text-black text-2xl py-1"
