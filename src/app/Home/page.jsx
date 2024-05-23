@@ -1,10 +1,10 @@
 "use client"
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
+import { AlignJustify, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import '../Home/home.css';
-import projects from './projects'
-import { AlignJustify, ArrowUpRight } from 'lucide-react';
-import skills from './skills'
+import projects from './projects';
+import skills from './skills';
 
 import {
   Sheet,
@@ -15,18 +15,15 @@ import {
   SheetTrigger,
 } from "../../components/ui/sheet"
 
-
 export default function HomePage() {
-  
-  
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [cursorVariant, setCursorVariant] = useState("default");
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const phrase = "I create elevating digital experiences that inspire and connect with people through development and design.";
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     let throttled = false;
-  
+
     const mouseMove = e => {
       if (!throttled) {
         setMousePosition({
@@ -39,67 +36,62 @@ export default function HomePage() {
         }, -6); // Adjust the throttle time here (e.g., 100 milliseconds)
       }
     };
-  
+
     window.addEventListener("mousemove", mouseMove);
-  
+
     return () => {
       window.removeEventListener("mousemove", mouseMove);
     };
   }, []);
 
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      const eyes = document.querySelectorAll('.eye');
+      eyes.forEach((eye) => {
+        const rect = eye.getBoundingClientRect();
+        const eyeCenterX = rect.left + rect.width / 2;
+        const eyeCenterY = rect.top + rect.height / 2;
+        const deltaX = event.clientX - eyeCenterX;
+        const deltaY = event.clientY - eyeCenterY;
+        const angle = Math.atan2(deltaY, deltaX);
+        const pupilRadius = eye.querySelector('.pupil').offsetWidth / 2;
+        const moveRadius = rect.width / 2 - pupilRadius - 10;
+
+        const pupilX = moveRadius * Math.cos(angle);
+        const pupilY = moveRadius * Math.sin(angle);
+
+        eye.querySelector('.pupil').style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+      });
+    };
+
+    document.body.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      document.body.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
   const variants = {
-    default: { scale: 1,  },
-    large: { scale: 5, backgroundColor: '#FFFFFF', mixBlendMode: 'difference'},
-    medium: { scale: 3,  backgroundColor: '#FFFFFF', mixBlendMode: 'difference' },
+    default: { scale: 1 },
+    large: { scale: 5, backgroundColor: '#FFFFFF', mixBlendMode: 'difference' },
+    medium: { scale: 3, backgroundColor: '#FFFFFF', mixBlendMode: 'difference' },
     small: { scale: 1.5, backgroundColor: '#FFFFFF', mixBlendMode: 'difference' },
-    
   };
 
   const handleMouseEnter = (variant) => () => {
     setCursorVariant(variant);
-    setCursorVariant(variant);
-     // Update the animation state
   };
-  const handleMouseLeave = () => setCursorVariant("default");
 
-  
-
-const handleMouseHover = (index) => {
-  console.log("Hovered index:", index);
-  setHoveredIndex(index);
-};
-
-const handleImageClick = (url) => {
-  window.open(url, '_blank');
-};
-
-document.querySelector('body').addEventListener('mousemove', (event) => {
-  const eyes = document.querySelectorAll('.eye');
-  eyes.forEach((eye) => {
-    const rect = eye.getBoundingClientRect();
-    const eyeCenterX = rect.left + rect.width / 2;
-    const eyeCenterY = rect.top + rect.height / 2;
-    const deltaX = event.clientX - eyeCenterX;
-    const deltaY = event.clientY - eyeCenterY;
-    const angle = Math.atan2(deltaY, deltaX);
-    const pupilRadius = eye.querySelector('.pupil').offsetWidth / 2;
-    const moveRadius = rect.width / 2 - pupilRadius - 10; // Subtracting the border size and ensuring it stays within the eye
-
-    const pupilX = moveRadius * Math.cos(angle);
-    const pupilY = moveRadius * Math.sin(angle);
-
-    eye.querySelector('.pupil').style.transform = `translate(${pupilX}px, ${pupilY}px)`;
-  });
-});
-
-
-const [isOpen, setIsOpen] = useState(false);
+  const handleMouseLeave = () => {
+    setCursorVariant("default");
+  };
 
   const handleLinkClick = (e, sectionId) => {
     e.preventDefault();
     document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
     setIsOpen(false); // Close the sheet
   };
+
 
 
 
@@ -136,46 +128,42 @@ const [isOpen, setIsOpen] = useState(false);
 
           <nav className="font-[creg]  navigation text-xl flex items-center">
             <div className=' md:hidden'>
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger><AlignJustify className='h-[30px] w-[30px]' /></SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle></SheetTitle>
-          <SheetDescription>
-            <div className='mt-[50px] flex flex-col gap-3'>
-              <a
-                className=" px-5 z-0 text-white justify-center flex m-auto rounded-full w-[150px] bg-black text-2xl py-2"
-                href="#contact"
-                onClick={(e) => handleLinkClick(e, 'contact')}
-              >
-                <span>let&apos;s talk</span>
-              </a>
-              <a
-                className=" px-5 z-0 text-black text-2xl py-2"
-                href="#services"
-                onClick={(e) => handleLinkClick(e, 'services')}
-              >
-                <span>services</span>
-              </a>
-              <a
-                className=" px-5 z-0 text-black text-2xl py-2"
-                href="#projects"
-                onClick={(e) => handleLinkClick(e, 'projects')}
-              >
-                <span>projects</span>
-              </a>
-              <a
-                className=" px-5 z-0 text-black text-2xl py-2"
-                href="#about"
-                onClick={(e) => handleLinkClick(e, 'about')}
-              >
-                <span>about</span>
-              </a>
-            </div>
-          </SheetDescription>
-        </SheetHeader>
-      </SheetContent>
-    </Sheet>
+            <Sheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <SheetTrigger><AlignJustify className='h-[30px] w-[30px]' /></SheetTrigger>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Navigation</SheetTitle>
+            <SheetDescription>
+              <div className='mt-[50px] flex flex-col gap-3'>
+                <a
+                  className="px-5 z-0 text-white justify-center flex m-auto rounded-full w-[150px] bg-black text-2xl py-2"
+                  href="#contact"
+                  onClick={(e) => handleLinkClick(e, 'contact')}>
+                  <span>let's talk</span>
+                </a>
+                <a
+                  className="px-5 z-0 text-black text-2xl py-1"
+                  href="#services"
+                  onClick={(e) => handleLinkClick(e, 'services')}>
+                  <span>services</span>
+                </a>
+                <a
+                  className="px-5 z-0 text-black text-2xl py-1"
+                  href="#projects"
+                  onClick={(e) => handleLinkClick(e, 'projects')}>
+                  <span>projects</span>
+                </a>
+                <a
+                  className="px-5 z-0 text-black text-2xl py-1"
+                  href="#about"
+                  onClick={(e) => handleLinkClick(e, 'about')}>
+                  <span>about</span>
+                </a>
+              </div>
+            </SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
   
 
             </div>
