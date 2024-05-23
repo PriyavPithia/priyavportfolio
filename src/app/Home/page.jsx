@@ -21,10 +21,7 @@ export default function HomePage() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleMouseHover = (index) => {
-    console.log("Hovered index:", index);
-    setHoveredIndex(index);
-  };
+  
 
   useEffect(() => {
     let throttled = false;
@@ -95,6 +92,11 @@ export default function HomePage() {
     e.preventDefault();
     document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
     setIsOpen(false); // Close the sheet
+  };
+
+  const handleMouseHover = (index) => {
+    console.log("Hovered index:", index);
+    setHoveredIndex(index);
   };
 
 
