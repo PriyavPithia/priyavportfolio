@@ -99,6 +99,11 @@ export default function HomePage() {
     setHoveredIndex(index);
   };
 
+  const handleImageClick = (url) => {
+    window.open(url, '_blank');
+  };
+  
+
 
 
 
@@ -233,14 +238,14 @@ export default function HomePage() {
         </div>
 
         
-        <div className="name text-center relative   z-0">
+        <div className=" text-center relative  ">
           <motion.h1 
           initial={{ opacity: 0}} 
           animate={{ opacity: 1}} 
           transition={{ delay: 0.5, type: 'spring', stiffness: 120}}
           onMouseEnter={handleMouseEnter('large')}
           onMouseLeave={handleMouseLeave}
-           data-text="PRIYAV PITHIA" className="  xl:text-[352px] md:ml-[-10px] hover:text-[#161616] transition ease-in-out delay-150 mt-[40px]  lg:mt-[-40px] font-abo str leading-[1] text-[25vw] sm:text-[25.5vw] md:text-[26.5vw] lg:text-[26.5vw] ">
+           data-text="PRIYAV PITHIA" className="text-[25vw] sm:text-[25.5vw] md:text-[26.5vw] lg:text-[24.5vw]   xl:text-[22vw] 2xl:text-[18vw] md:ml-[-10px] hover:text-[#161616] transition ease-in-out delay-150 mt-[40px]  lg:mt-[-40px] font-[abo]  leading-[1] ">
             PRIYAV PITHIA</motion.h1>
         </div>
 
@@ -252,7 +257,7 @@ export default function HomePage() {
           onMouseEnter={handleMouseEnter('large')}
           onMouseLeave={handleMouseLeave}
 
-            className= "h-[350px]  sm:h-[500px] top-[45%] left-[30%] sm:top-[200px] sm:left-[100px]  md:top-[220px] md:left-[120px] lg:top-[300px] lg:left-[150px] xl:top-[300px] xl:left-[200px] 2xl:top-[300px] 2xl:left-[350px] absolute"
+            className= "h-[350px]  sm:h-[500px] top-[45%] left-[30%] sm:top-[200px] sm:left-[100px]  md:top-[220px] md:left-[120px] lg:top-[300px] lg:left-[150px] xl:top-[200px] xl:left-[200px] 2xl:top-[300px] 2xl:left-[350px] absolute"
             src="./assets/port.png" alt="" />
 
           <div
@@ -577,7 +582,7 @@ transition={{ delay: 0.3, type: 'tween'}}
             <a 
             onMouseEnter={handleMouseEnter('small')}
             onMouseLeave={handleMouseLeave}
-            data-text="WEB DEVELOPMENT"  className="list font-[cbold] primary text-4xl md:text-5xl lg:text-6xl xl:text-7xl  skew flex ">
+            data-text="WEB DEVELOPMENT"  className="list font-[cbold] primary text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-7xl skew flex ">
             WEB DEVELOPMENT
               <span className="photo"><img src="./assets/tt.PNG" alt="" /></span>
             </a>
@@ -633,7 +638,7 @@ transition={{ delay: 0.3, type: 'tween'}}
           transition={{ delay: 0.3, type: 'tween'}}
           onMouseEnter={handleMouseEnter('medium')}
           onMouseLeave={handleMouseLeave}
-          className="font-[gbold] primary  text-4xl md:text-5xl lg:text-6xl xl:text-7xl  lg:mt-[80px] text-center lg:mb-[140px]">about me</motion.h1>
+          className="font-[gbold] primary  text-4xl md:text-5xl lg:text-6xl xl:text-7xl  lg:mt-[80px] xl:mt-[190px] 2xl:mt-[80px] text-center lg:mb-[140px]">about me</motion.h1>
           
           
 
@@ -791,13 +796,13 @@ transition={{ delay: 0.3, type: 'tween'}}
 
 
       <footer className='bg-black'>
-        <div className='wrapper '>
+        <div className='wrapper container'>
         <div className=' justify-center flex'>
         <motion.h1 
          
           onMouseEnter={handleMouseEnter('large')}
           onMouseLeave={handleMouseLeave}
-           data-text="PRIYAV PITHIA" className=" mt-[80px] xl:text-[360px] md:ml-[-10px] primary transition ease-in-out delay-150  mb-[80px]   font-[abo]  leading-[1] text-[25vw] sm:text-[25.5vw] md:text-[26.5vw] lg:text-[26.5vw] ">
+           data-text="PRIYAV PITHIA" className="text-[23vw] primary mb-[80px] sm:text-[25.5vw] md:text-[26.5vw] lg:text-[24.5vw]   xl:text-[22vw] 2xl:text-[18vw] md:ml-[-10px] hover:text-[#161616] transition ease-in-out delay-150 mt-[40px]  lg:mt-[-40px] font-[abo]  leading-[1] ">
             PRIYAV PITHIA</motion.h1>
         </div>
 
