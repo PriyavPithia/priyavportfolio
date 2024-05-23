@@ -21,6 +21,11 @@ export default function HomePage() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleMouseHover = (index) => {
+    console.log("Hovered index:", index);
+    setHoveredIndex(index);
+  };
+
   useEffect(() => {
     let throttled = false;
 
