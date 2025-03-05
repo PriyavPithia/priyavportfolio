@@ -1,19 +1,24 @@
 const projects = [
     {
-      title: "DEVELLOPIX - WEB DEVELOPMENT",
-      photo_url: "./assets/work/devellopix.png",
-      url: "https://devellopix.com"
-    },
-    {
-      title: "LIBERO GROUPS - WEB DEVELOPMENT",
-      photo_url: "./assets/work/libero.png",
-      url: "https://liberogroupltd.com"
+      title: "TECHNO TANKS - E-COMMERCE WEB DEVELOPMENT",
+      photo_url: "./assets/work/technotanks.png",
+      url: "https://technotanks.co.ke"
     },
     {
       title: "PRINTFECTION - E-COMMERCE WEB DEVELOPMENT",
       photo_url: "./assets/work/printfection.png",
-      url: "https://store.printfectionuk.com"
+      url: "https://printfectionuk.com/"
     },
+    {
+      title: "MY PRINT EASY - WEB DESIGN",
+      photo_url: "./assets/work/myprint.png",
+      url: "https://www.myprinteasy.com/"
+    },
+    {
+      title: "B & K STUDIO - (UNDER CONSTRUCTION)",
+      photo_url: "./assets/work/bkstudio.png",
+      url: "https://peachpuff-donkey-447320.hostingersite.com/"
+    }
     
   ];
   
