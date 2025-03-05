@@ -5,7 +5,7 @@ const projects = [
       url: "https://technotanks.co.ke"
     },
     {
-      title: "PRINTFECTION - E-COMMERCE WEB DEVELOPMENT",
+      title: "PRINTFECTION - WEB DESIGN",
       photo_url: "./assets/work/printfection.png",
       url: "https://printfectionuk.com/"
     },
